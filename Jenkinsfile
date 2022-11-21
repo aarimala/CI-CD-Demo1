@@ -27,6 +27,7 @@ pipeline {
 	 steps {
 		 withDockerRegistry([ credentialsId: "MyDocker-Arif-ID", url: "arifarimala/my-webapp:1.0" ]) {
         dockerImage.push('docker push arifarimala/my-webapp:1.0')
+		 }		 
         //withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub1')]) {
 	//sh 'docker login -u arifarimala -p ${MyDocker-Arif-ID}'   
 }
