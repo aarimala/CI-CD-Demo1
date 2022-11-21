@@ -3,7 +3,7 @@ pipeline {
   
   tools
   {
-	maven 'Maven'
+	maven 'maven'
   }
   stages {
     stage ('SCM Checkout') {
@@ -12,7 +12,7 @@ pipeline {
 	     git branch: 'main', url: 'https://github.com/aarimala/CI-CD-Demo1.git'
       }
       }
- stage ('Excute Maven') {
+ stage ('Excute maven') {
       steps {
         sh 'mvn package'
       }
