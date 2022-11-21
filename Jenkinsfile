@@ -24,11 +24,13 @@ pipeline {
       }
     }
     stage ('publish image to dockerhub') {
-	 steps {	   
-        withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub1')]) {
-	sh 'docker login -u arifarimala -p ${MyDocker-Arif-ID}'   
+	 steps {
+		 withDockerRegistry([ credentialsId: "MyDocker-Arif-ID", url: "arifarimala/my-webapp:1.0" ]) {
+        dockerImage.push()
+        //withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub1')]) {
+	//sh 'docker login -u arifarimala -p ${MyDocker-Arif-ID}'   
 }
-		sh 'docker push arifarimala/my-webapp:1.0'
+		//sh 'docker push arifarimala/my-webapp:1.0'
 		}
 		}
 	 stage ('Run Docker container on Jenkins Agent') {
