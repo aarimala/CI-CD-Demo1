@@ -29,6 +29,7 @@ pipeline {
 		sh 'docker login -u arifarimala -p ${MyDocker-Arif-ID}'
 		}
 		}
+    }
 	 stage ('Run Docker container on Jenkins Agent') {
 		 steps {  
 			 sh "docker run -d -p 8003:8080 arifarimala/my-webapp:1.0"
@@ -39,5 +40,4 @@ pipeline {
          }  
 	 }
   }
-}
 }
