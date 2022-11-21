@@ -27,20 +27,14 @@ pipeline {
 	 steps {
 		 withDockerRegistry([ credentialsId: "MyDocker-Arif-ID", url: "arifarimala/my-webapp:1.0" ]) {
 		sh 'docker login -u arifarimala -p ${MyDocker-Arif-ID}'
-        //dockerImage.push ('my-webapp:1.0')
-		 }		 
-        //withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub1')]) {
-	//sh 'docker login -u arifarimala -p ${MyDocker-Arif-ID}'   
-//}
-		//sh 'docker push arifarimala/my-webapp:1.0'
 		}
 		}
 	 stage ('Run Docker container on Jenkins Agent') {
 		 steps {  
-			 sh "docker run -d -p 8003:8080 arifarimala/my-webapp"
+			 sh "docker run -d -p 8003:8080 arifarimala/my-webapp:1.0"
                	
                 
-		sh "docker -H ssh://ec2-user@172.31.45.168/ run arifarimala/my-webapp"
+		sh "docker -H ssh://ec2-user@172.31.45.168/ run arifarimala/my-webapp:1.0"
 			
          }  
 	 }
