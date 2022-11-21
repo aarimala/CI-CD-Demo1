@@ -26,8 +26,9 @@ pipeline {
     stage ('publish image to dockerhub') {
 	 steps {
 		 //withCredentials([string(credentialsId: 'MyDocker-Arif-ID', variable: 'dockerhub1')]) {
-		 withCredentials([sting(credentialsId: "MyDocker-Arif-ID",url: "arifarimala/my-webapp:1.0")]) {
-		sh 'docker login -u arifarimala -p ${MyDocker-Arif-ID}'
+		 //withCredentials([sting(credentialsId: "MyDocker-Arif-ID",url: "arifarimala/my-webapp:1.0")]) {
+		withCredentials([string(credentialsId: 'Docker_arif', variable: 'Docker_arif')]) {
+		sh 'docker login -u arifarimala -p ${Docker_arif}'
 		}
 		}
     }
