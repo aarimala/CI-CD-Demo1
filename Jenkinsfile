@@ -27,7 +27,7 @@ pipeline {
 	 steps {
 		 withCredentials([string(credentialsId: 'MyDocker-Arif-ID', variable: 'dockerhub1')]) {
 		 //withDockerRegistry([ credentialsId: "MyDocker-Arif-ID",url: "arifarimala/my-webapp:1.0" ]) {
-		sh 'docker login -u arifarimala -p ${dockerhub1}'
+		sh 'docker login -u arifarimala -p ${MyDocker-Arif-ID}'
 		}
 		}
     }
