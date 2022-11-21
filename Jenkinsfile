@@ -1,5 +1,5 @@
 pipeline {
-	Def buildnumber = BUILD_NUMBER
+	def buildnumber = BUILD_NUMBER
   agent any
   
   tools
