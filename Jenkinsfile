@@ -38,9 +38,8 @@ pipeline {
 		 steps {  
 			 sh 'docker run -d -p 8025:8080 arifarimala/my-webapp:1.0'
                	
-                //sshagent(['ec2-user']) {
-		sshagent(credentials: ['Docker_SSH_ID'], ignoreMissing: true) {
-sh "ssh -o StrictHostKeyChecking=no ec2-user@13.127.197.201 'docker run -p 8025:8080 -d --name my-webapp arifarimala/my-webapp:1.0'"
+               		sshagent(['Ubuntu']) {
+sh "ssh -o StrictHostKeyChecking=no ubuntur@35.154.204.177 'docker run -p 8025:8080 -d --name my-webapp arifarimala/my-webapp:1.0'"
 				}	
          }  
 	 }
