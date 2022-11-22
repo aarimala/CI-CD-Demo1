@@ -40,9 +40,8 @@ pipeline {
                	
                 //sshagent(['ec2-user']) {
 		sshagent(credentials: ['Docker_SSH_ID'], ignoreMissing: true) {
-sh 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.45.168 docker run -p 8016:8080 -d --name my-webapp1 arifarimala/my-webapp:1.0'
-		//sh "docker -H ssh://ec2-user@172.31.45.168/ run arifarimala/my-webapp:1.0"
-		}	
+sh 'ssh -o StrictHostKeyChecking=no ec2-user@13.127.197.201 docker run -p 8016:8080 -d --name my-webapp arifarimala/my-webapp:1.0'
+				}	
          }  
 	 }
   }
