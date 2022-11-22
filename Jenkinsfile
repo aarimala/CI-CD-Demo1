@@ -37,7 +37,7 @@ pipeline {
 			 sh 'docker run -d -p 8040:8080 arifarimala/my-webapp:1.0'
                	
                		sshagent(['Ubuntu']) {
-				sh 'ssh  ubuntu@35.154.204.177 docker rm my-webapp || true'
+				sh 'ssh  ubuntu@35.154.204.177 docker rm -f my-webapp || true'
 sh "ssh -o StrictHostKeyChecking=no ubuntu@35.154.204.177 'docker run -p 8040:8080 -d --name my-webapp arifarimala/my-webapp:1.0'"
 				}	
          }  
